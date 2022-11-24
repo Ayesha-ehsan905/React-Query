@@ -30,8 +30,8 @@ const SuperHeroes = () => {
     <>
       <div>
         <h2>Super Heroes Page</h2>
-        {data.map((hero) => {
-          return <div key={hero.id}>{hero.name}</div>;
+        {data.map((hero: { name: any }) => {
+          return <div key={hero.name}>{hero.name}</div>;
         })}
       </div>
     </>
