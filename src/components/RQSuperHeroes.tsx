@@ -1,6 +1,4 @@
-import React from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { useSuperHeroesList } from "../hooks/useSuperHeroesList";
 
 const RQSuperHeroes = () => {
@@ -24,7 +22,11 @@ const RQSuperHeroes = () => {
         return <h2 key={item}>{item}</h2>;
       })} */}
       {data?.data.map((item: any) => {
-        return <h2 key={item.alterEgo}>{item.alterEgo}</h2>;
+        return (
+          <div key={item.id}>
+            <Link to={`/rq-super-heroes/${item.id}`}>{item.name}</Link>
+          </div>
+        );
       })}
     </>
   );
