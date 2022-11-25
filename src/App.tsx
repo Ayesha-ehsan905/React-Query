@@ -6,6 +6,8 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import Navbar from "./components/Navbar";
 import { RQSuperHero } from "./components/RQSuperHero";
 import { Queries } from "./components/Queries";
+import { DynamicParalle } from "./components/DynamicParalle";
+import { DependentQueries } from "./components/DependentQueries";
 const RQSuperHeroes = React.lazy(() => import("./components/RQSuperHeroes"));
 const Home = React.lazy(() => import("./components/Home"));
 const SuperHeroes = React.lazy(() => import("./components/SuperHeroes"));
@@ -18,6 +20,14 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/rq-super-heroes/:heroId" element={<RQSuperHero />} />
+            <Route
+              path="/rq-dynamic"
+              element={<DynamicParalle heroIds={[1, 3]} />}
+            />
+            <Route
+              path="/dependent-queries"
+              element={<DependentQueries email={"vishwas@example.com"} />}
+            />
             <Route path="/rq-parallel" element={<Queries />} />
             <Route path="/" element={<Home />} />
             <Route path="/super-heroes" element={<SuperHeroes />} />

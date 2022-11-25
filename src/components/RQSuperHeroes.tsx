@@ -9,10 +9,13 @@ const RQSuperHeroes = () => {
     console.log("Error");
   };
   //super-heroes is the unqiue key for the query, same concept as for div
+  const dats = useSuperHeroesList(onSuccess, onError);
   const { isLoading, data, isError, error, isFetching, refetch } =
     useSuperHeroesList(onSuccess, onError);
   if (isLoading) return <h2>Loading...</h2>;
   if (isError) return <h2>{error.message}</h2>;
+  console.log(dats);
+  console.log(dats?.dats);
   return (
     <>
       <div>RQSuperHeroes</div>
