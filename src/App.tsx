@@ -10,6 +10,7 @@ import { DynamicParalle } from "./components/DynamicParalle";
 import { DependentQueries } from "./components/DependentQueries";
 import { PaginatedQueries } from "./components/PaginatedQueries";
 import { InfiniteQueries } from "./components/InfiniteQueries";
+import { Page404 } from "./components/Page404";
 const RQSuperHeroes = React.lazy(() => import("./components/RQSuperHeroes"));
 const Home = React.lazy(() => import("./components/Home"));
 const SuperHeroes = React.lazy(() => import("./components/SuperHeroes"));
@@ -36,6 +37,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/super-heroes" element={<SuperHeroes />} />
             <Route path="/rq-super-heroes" element={<RQSuperHeroes />} />
+            <Route path="/*" element={<Page404 />} />
           </Routes>
         </Suspense>
       </Router>
