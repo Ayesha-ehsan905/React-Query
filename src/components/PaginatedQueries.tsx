@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 
-const fetchData = (pageNumber) => {
+const fetchData = (pageNumber: number) => {
   return axios.get(`http://localhost:4000/colors?_limit=2&_page=${pageNumber}`);
 };
 export const PaginatedQueries = () => {
@@ -14,8 +14,14 @@ export const PaginatedQueries = () => {
       keepPreviousData: true,
     }
   );
+  console.log(error);
   if (isLoading) return <h2>Loading....</h2>;
-  if (isError) return <h2>{error.message}</h2>;
+  if (isError)
+    return (
+      <h2>
+        {typeof error === "object" && error !== null ? error.message : "error"}
+      </h2>
+    );
   return (
     <>
       <div>

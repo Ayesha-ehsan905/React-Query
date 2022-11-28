@@ -1,0 +1,18 @@
+1.Query
+2.Staletime
+3.Refect default, on mount,on foucs etc
+4.polling
+5.fetch on click
+6. using select use get specific data only
+7.query by Id, get detail pf a signle product
+8. running 3 queries parallel
+9. geeting mutiple record base on diff id array
+10. dependent queroes
+11.inital data, to avoid loading , the loading will be done on the background an d the data will be cache as well.
+12.pagination
+13. load more ot infinite query
+14. mutation
+14.invalidate the mutation to refecth the updated record
+15. better way to do the above with calling th get call again
+16. more optimiastic approach to that 
+

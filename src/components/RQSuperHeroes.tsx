@@ -1,24 +1,51 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSuperHeroesList } from "../hooks/useSuperHeroesList";
+import {
+  useAddSuperHeroData,
+  useSuperHeroesList,
+} from "../hooks/useSuperHeroesList";
 
 const RQSuperHeroes = () => {
+  const [name, setName] = useState("");
+  const [alterEgo, setAlterEgo] = useState("");
   const onSuccess = () => {
     console.log("Sucess");
   };
   const onError = () => {
     console.log("Error");
   };
+
   //super-heroes is the unqiue key for the query, same concept as for div
   const dats = useSuperHeroesList(onSuccess, onError);
   const { isLoading, data, isError, error, isFetching, refetch } =
     useSuperHeroesList(onSuccess, onError);
+
+  const { mutate: addHero } = useAddSuperHeroData();
+
+  const handleAddHeroClick = () => {
+    const hero = { name, alterEgo };
+    addHero(hero);
+  };
   if (isLoading) return <h2>Loading...</h2>;
   if (isError) return <h2>{error.message}</h2>;
 
   return (
     <>
       <div>RQSuperHeroes</div>
-      <button onClick={refetch}>Fetch Heroes</button>
+      <div>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          value={alterEgo}
+          onChange={(e) => setAlterEgo(e.target.value)}
+        />
+        <button onClick={handleAddHeroClick}>Add Hero</button>
+      </div>
+      <button onClick={() => refetch()}>Fetch Heroes</button>
       {/* select data scenior where we select and display  */}
       {/* {data.map((item: any) => {
         return <h2 key={item}>{item}</h2>;
