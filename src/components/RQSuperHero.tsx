@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSuperHeroData } from "../hooks/useSuperHeroData";
 
 export const RQSuperHero = () => {
-  const { heroId } = useParams();
+  const { heroId } = useParams(); //get the id frrom url, coonst name should be same as in the app name
   const { isLoading, data, isError, error } = useSuperHeroData(heroId);
   if (isLoading) {
     return <h2>Loading....</h2>;

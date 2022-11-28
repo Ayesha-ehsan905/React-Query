@@ -15,6 +15,8 @@ export const useSuperHeroesList = (onError: any, onSuccess: any) => {
     // enabled: false, //not to fire when componenet mount
     onError,
     onSuccess,
+
+    //fn to get the only selected data from the list
     // select: (data) => {
     //   const superHeroes = data?.data.map((hero: { name: any }) => hero.name);
     //   return superHeroes;

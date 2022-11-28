@@ -8,6 +8,7 @@ import { RQSuperHero } from "./components/RQSuperHero";
 import { Queries } from "./components/Queries";
 import { DynamicParalle } from "./components/DynamicParalle";
 import { DependentQueries } from "./components/DependentQueries";
+import { PaginatedQueries } from "./components/PaginatedQueries";
 const RQSuperHeroes = React.lazy(() => import("./components/RQSuperHeroes"));
 const Home = React.lazy(() => import("./components/Home"));
 const SuperHeroes = React.lazy(() => import("./components/SuperHeroes"));
@@ -24,6 +25,7 @@ function App() {
               path="/rq-dynamic"
               element={<DynamicParalle heroIds={[1, 3]} />}
             />
+            <Route path="/paginated" element={<PaginatedQueries />} />
             <Route
               path="/dependent-queries"
               element={<DependentQueries email={"vishwas@example.com"} />}

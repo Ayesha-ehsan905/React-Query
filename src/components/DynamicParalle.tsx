@@ -1,6 +1,7 @@
 import { useQueries } from "react-query";
 import axios from "axios";
 
+// if you want to get multiple data data array base on the multiple id or unique keys
 const fetchSuperHero = (heroId) => {
   return axios.get(`http://localhost:4000/superheroes/${heroId}`);
 };

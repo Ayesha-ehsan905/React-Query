@@ -11,7 +11,7 @@ export const useSuperHeroData = (heroId) => {
   return useQuery(["super-hero", heroId], fetchSuperHero, {
     initialData: () => {
       const hero = queryClient
-        .getQueryData("super-heroes")
+        .getQueryData("super-heroes") //try to get heroes list using super heroes key which is assign in the hero list hook
         ?.data?.find((hero) => hero.id === parseInt(heroId));
       if (hero) {
         return {

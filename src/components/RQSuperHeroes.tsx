@@ -14,8 +14,7 @@ const RQSuperHeroes = () => {
     useSuperHeroesList(onSuccess, onError);
   if (isLoading) return <h2>Loading...</h2>;
   if (isError) return <h2>{error.message}</h2>;
-  console.log(dats);
-  console.log(dats?.dats);
+
   return (
     <>
       <div>RQSuperHeroes</div>
